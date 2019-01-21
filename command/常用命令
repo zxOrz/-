@@ -1,0 +1,20 @@
+#####拨测网页是否通
+    curl -i http://*******.html    ##如果第一行的状态返回值是200，说明是通的。
+
+#####重启nginx
+    /home/wechat/opt/nginx/sbin/nginx -p /home/wechat/opt/nginx -c /home/wechat/opt/nginx/nginx.conf -t   ##-t 表示的是测试并没有执行， -s reload 表示重启。
+
+#####环境变量配置错误，导致大部分命令不可以使用的解决办法
+    在命令行中输入：export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin 后 Enter    
+
+#####启动redis节点
+     在redis的bin目录下输入：./redis-server   /etc/redis/****.conf
+
+#####查看哪个进程占用磁盘IO
+      用root权限 输入：iotop 命令。 iotop -oP
+
+#####批量杀死进程
+      ps -ef|grep -w tomcat-billingMananger-server | grep -v grep |grep -v $$ |awk '{print $2}'  |xargs kill -9
+
+#####截取日志
+      sed -n '/2019-01-07 16:30:00/,/2019-01-07 16:36:00/'p /home/wechat/access.log >   /tmp/access1630_1636.log
